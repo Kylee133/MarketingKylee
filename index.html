@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kylee's personal portfolio — thoughtful marketing, creative strategy, and meaningful digital experiences." />
+  <title>Kylee — Marketing & Creative Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Kylee home"><span class="brand-mark">K</span><span>Kylee</span></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#work">Work</a><a href="#approach">Approach</a><a href="#contact" class="nav-cta">Let's talk <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Marketing with meaning</p>
+        <h1>Ideas that make<br><em>people care.</em></h1>
+        <p class="hero-text">Hi, I’m Kylee — a thoughtful marketer and creative problem-solver helping brands find their voice, connect with their people, and grow with purpose.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span>↗</span></a><a class="text-link" href="#about">More about me <span>↓</span></a></div>
+      </div>
+      <div class="hero-art reveal reveal-delay" aria-label="Abstract decorative artwork">
+        <div class="sun"></div><div class="arch arch-one"></div><div class="arch arch-two"></div><div class="star star-one">✦</div><div class="star star-two">✧</div><div class="art-note">curiosity<br>+ clarity<br>+ care</div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Services"><div class="ticker-track"><span>Strategy</span><b>✳</b><span>Storytelling</span><b>✳</b><span>Brand building</span><b>✳</b><span>Creative direction</span><b>✳</b><span>Strategy</span><b>✳</b><span>Storytelling</span><b>✳</b></div></section>
+
+    <section id="about" class="about section-shell section-grid">
+      <div class="section-label"><span>01</span><span class="label-line"></span><span>About me</span></div>
+      <div class="about-content"><h2>Good marketing starts with <em>a good question.</em></h2><p>I’m drawn to the space where strategy meets creativity. I believe the best work is clear without being ordinary, warm without losing focus, and built around a real understanding of people.</p><p>Whether I’m shaping a brand story, planning a campaign, or finding a new way to make an idea land, I bring equal parts curiosity, intention, and energy.</p><a class="text-link" href="#contact">Get to know me <span>↗</span></a></div>
+    </section>
+
+    <section id="work" class="work section-shell">
+      <div class="work-heading"><div class="section-label"><span>02</span><span class="label-line"></span><span>Selected work</span></div><p>A few kinds of problems I love to solve.</p></div>
+      <div class="project-grid">
+        <article class="project project-lilac"><div class="project-visual"><span class="project-number">01</span><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><span class="visual-word">connect</span></div><div class="project-info"><div><h3>Building a brand people remember</h3><p>Brand strategy · Positioning · Voice</p></div><span class="round-arrow">↗</span></div></article>
+        <article class="project project-peach"><div class="project-visual"><span class="project-number">02</span><div class="peach-shape"></div><span class="visual-word">make<br>it matter</span></div><div class="project-info"><div><h3>Turning attention into action</h3><p>Campaigns · Content · Creative direction</p></div><span class="round-arrow">↗</span></div></article>
+        <article class="project project-olive"><div class="project-visual"><span class="project-number">03</span><div class="olive-shape"></div><span class="visual-word">stay<br>curious</span></div><div class="project-info"><div><h3>Finding the story in the data</h3><p>Research · Insights · Digital strategy</p></div><span class="round-arrow">↗</span></div></article>
+      </div>
+    </section>
+
+    <section id="approach" class="approach section-shell section-grid"><div class="section-label"><span>03</span><span class="label-line"></span><span>My approach</span></div><div class="approach-content"><h2>Thoughtful by design.<br><em>Brave by nature.</em></h2><div class="principles"><div><span>01</span><h3>Listen closely</h3><p>Before making anything, I make space for the real story.</p></div><div><span>02</span><h3>Make it clear</h3><p>Simple is powerful. The right idea should feel easy to find.</p></div><div><span>03</span><h3>Leave a mark</h3><p>Work should be useful, memorable, and a little unexpected.</p></div></div></div></section>
+
+    <section id="contact" class="contact"><div class="section-shell contact-inner"><p class="eyebrow"><span class="eyebrow-dot"></span> Have a good idea?</p><h2>Let’s make it<br><em>matter.</em></h2><a class="button button-light" href="mailto:hello@kylee.com">Say hello <span>↗</span></a><div class="contact-footer"><span>© 2026 Kylee</span><div><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="mailto:hello@kylee.com">Email</a></div></div></div></section>
+  </main>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle?.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') === 'true'; toggle.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('open'); });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => { toggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
