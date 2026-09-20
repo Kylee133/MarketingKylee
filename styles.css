@@ -4,6 +4,7 @@
   --panel: #f0efe9;
   --line: #1f1f1f;
   --muted: #585858;
+  --sage-10: #e6eee6;
   --shadow: rgba(0, 0, 0, 0.06);
 }
 
@@ -18,7 +19,7 @@ html {
 body {
   margin: 0;
   font-family: "DM Sans", Arial, sans-serif;
-  background: #d9d7d3;
+  background: var(--sage-10);
   color: var(--ink);
 }
 
