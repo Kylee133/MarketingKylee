@@ -18,6 +18,7 @@ html {
 
 body {
   margin: 0;
+  min-width: 320px;
   font-family: "DM Sans", Arial, sans-serif;
   background: var(--sage-10);
   color: var(--ink);
@@ -29,44 +30,21 @@ img {
 }
 
 .page-shell {
-  max-width: 1200px;
+  width: min(100% - 32px, 1200px);
   margin: 0 auto;
-  padding: 24px 12px 40px;
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 0;
-}
-
-.left-rail {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding-top: 32px;
-}
-
-.rail-box {
-  width: 100%;
-  min-height: 620px;
-  border: 3px solid var(--line);
-  border-right: 0;
-  background: var(--paper);
-  font-size: clamp(1.2rem, 1.3vw, 2rem);
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+  padding: 24px 0 40px;
 }
 
 .content-panel {
+  overflow: hidden;
   border: 3px solid var(--line);
   background: var(--paper);
+  box-shadow: 10px 10px 0 var(--shadow);
 }
 
 .site-header {
   display: grid;
-  grid-template-columns: 1.3fr 2.4fr;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 1.8fr);
   border-bottom: 3px solid var(--line);
 }
 
@@ -81,6 +59,7 @@ img {
 }
 
 .logo-block {
+  padding: 18px;
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(3.2rem, 5vw, 6rem);
   letter-spacing: -0.06em;
@@ -89,10 +68,11 @@ img {
 }
 
 .info-block {
+  max-width: 52ch;
+  justify-self: center;
+  padding: 18px 24px;
   font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 1.4;
-  padding: 18px 24px;
-  background: transparent;
 }
 
 .site-nav,
@@ -102,10 +82,12 @@ img {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 0.75rem 2.5rem;
   min-height: 68px;
+  padding: 12px 20px;
 }
 
 .nav-links a {
@@ -126,20 +108,20 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 18px;
   font-size: 1.1rem;
   text-align: center;
-  padding: 10px 18px;
 }
 
 .main-layout {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr) 200px;
-  min-height: 560px;
+  align-items: stretch;
 }
 
 .left-column,
 .right-column {
-  border-right: 3px solid var(--line);
+  min-width: 0;
   background: var(--panel);
 }
 
@@ -154,11 +136,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 20px;
+  border-bottom: 3px solid var(--line);
   font-size: 1.3rem;
   line-height: 1.2;
-  border-bottom: 3px solid var(--line);
+  text-align: center;
 }
 
 .side-box--secondary {
@@ -166,28 +148,30 @@ img {
 }
 
 .main-column {
-  padding: 14px 14px 0;
+  min-width: 0;
+  padding: 24px;
 }
 
 .hero-box {
+  min-height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 110px;
+  margin-bottom: 32px;
+  padding: 24px;
   border: 3px solid var(--line);
   background: var(--paper);
-  margin-bottom: 16px;
+  text-align: center;
 }
 
 .hero-box h1 {
   margin: 0;
-  font-size: clamp(2rem, 2.6vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
-  font-weight: 700;
 }
 
 .section {
-  padding: 10px 0 0;
+  padding: 0 0 32px;
 }
 
 .eyebrow {
@@ -200,7 +184,7 @@ img {
 
 .section h2 {
   margin: 0 0 18px;
-  font-size: clamp(1.7rem, 2vw, 2.4rem);
+  font-size: clamp(1.7rem, 2.5vw, 2.4rem);
   line-height: 1.15;
 }
 
@@ -211,17 +195,18 @@ img {
 }
 
 .portfolio-card {
-  background: rgba(255,255,255,0.15);
-  border: 2px solid var(--line);
-  padding: 18px 16px 14px;
+  min-width: 0;
   min-height: 180px;
+  padding: 18px 16px 14px;
+  border: 2px solid var(--line);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .portfolio-card span {
   display: block;
   margin-bottom: 10px;
-  font-weight: 700;
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .portfolio-card h3 {
@@ -231,13 +216,13 @@ img {
 
 .portfolio-card p {
   margin: 0;
-  line-height: 1.5;
   color: var(--muted);
+  line-height: 1.5;
 }
 
 .section-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 24px;
   align-items: start;
 }
@@ -252,22 +237,14 @@ img {
   line-height: 1.6;
 }
 
-.approach-section {
-  padding-bottom: 18px;
-}
-
 .right-column {
-  border-right: 0;
-  background: var(--panel);
+  border-left: 3px solid var(--line);
 }
 
 .sticky-box {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  position: sticky;
+  top: 20px;
   padding: 24px 16px 16px;
-  border-left: 3px solid var(--line);
 }
 
 .sticky-box p {
@@ -280,56 +257,93 @@ img {
 .sticky-box ul {
   margin: 0;
   padding-left: 1.2rem;
-  line-height: 1.7;
   font-size: 1.02rem;
+  line-height: 1.7;
 }
 
 .site-footer {
   min-height: 110px;
-  border-top: 3px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 18px 22px;
+  border-top: 3px solid var(--line);
   font-size: 1rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 @media (max-width: 950px) {
+  .main-layout {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .right-column {
+    grid-column: 1 / -1;
+    border-top: 3px solid var(--line);
+    border-left: 0;
+  }
+
+  .sticky-box {
+    position: static;
+    padding: 20px 24px;
+  }
+
+  .sticky-box ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    padding-left: 1.2rem;
+  }
+}
+
+@media (max-width: 680px) {
   .page-shell {
-    grid-template-columns: 1fr;
+    width: min(100% - 20px, 1200px);
+    padding-top: 10px;
   }
 
-  .left-rail {
-    display: none;
-  }
-
+  .site-header,
   .main-layout {
     grid-template-columns: 1fr;
   }
 
-  .left-column,
-  .right-column {
-    border-right: 0;
-  }
-
-  .sticky-box {
-    border-left: 0;
-    border-top: 3px solid var(--line);
-  }
-
-  .section-content,
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .site-header {
-    grid-template-columns: 1fr;
-  }
-
   .logo-block {
+    min-height: 96px;
     border-right: 0;
     border-bottom: 3px solid var(--line);
+  }
+
+  .info-block {
+    min-height: 96px;
+    padding: 18px;
+  }
+
+  .left-column {
+    border-right: 0;
+    border-bottom: 3px solid var(--line);
+  }
+
+  .side-box,
+  .side-box--secondary {
+    min-height: 88px;
+  }
+
+  .main-column {
+    padding: 16px;
+  }
+
+  .hero-box {
+    min-height: 180px;
+    margin-bottom: 24px;
+  }
+
+  .portfolio-grid,
+  .section-content {
+    grid-template-columns: 1fr;
+  }
+
+  .section-content {
+    gap: 8px;
   }
 }
