@@ -254,6 +254,24 @@ em { color: var(--sage-dark); font-style: italic; }
   text-decoration: none;
 }
 
+.home-page .hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 7rem) 0 5rem;
+  text-align: center;
+}
+
+.home-page .hero .eyebrow,
+.home-page .hero h1,
+.home-page .hero .hero-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page .hero .hero-text {
+  max-width: 600px;
+}
+
 @media (max-width: 980px) {
   .main-layout {
     grid-template-columns: 1fr;
