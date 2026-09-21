@@ -1,13 +1,129 @@
-
-
-/* Keep the standalone About page framed by the site background on every side. */
-body:has(> header.site-header > nav.site-nav) {
-  min-height: 100vh;
-  padding: 10vh 10vw;
+/* About page: a calm, editorial layout with sage-green side walls. */
+:root {
+  --sage: #a8b9a1;
+  --sage-dark: #617260;
+  --ink: #202621;
+  --muted: #667068;
+  --cream: #f8f7f2;
+  --line: #dfe4dc;
+  --accent: #d9e3d5;
 }
 
-@media (max-width: 680px) {
-  body:has(> header.site-header > nav.site-nav) {
-    padding: 5vh 5vw;
-  }
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--sage);
+  font-family: "DM Sans", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* The panel occupies the central 80%, leaving 10% sage on both sides. */
+.page-shell {
+  width: 80vw;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--cream);
+  box-shadow: 0 0 40px rgba(46, 66, 48, .12);
+}
+
+.content-panel { min-height: 100vh; }
+
+.site-header { padding: 2.25rem 8%; }
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  color: var(--ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+.nav-links { display: flex; gap: clamp(1rem, 3vw, 2.5rem); }
+.nav-links a {
+  position: relative;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-links a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -.65rem;
+  left: 0;
+  height: 2px;
+  background: var(--sage-dark);
+  content: "";
+}
+
+.hero { max-width: 760px; padding: clamp(5rem, 10vw, 9rem) 0 7rem; }
+.eyebrow {
+  margin: 0 0 1.25rem;
+  color: var(--sage-dark);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+h1, h2, h3 { margin-top: 0; line-height: 1.08; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; letter-spacing: -.045em; }
+h1 { margin-bottom: 1.75rem; font-size: clamp(3.5rem, 7vw, 6.8rem); font-weight: 600; }
+h2 { max-width: 560px; margin-bottom: 0; font-size: clamp(2rem, 3.5vw, 3.25rem); font-weight: 600; }
+h3 { margin: 1.25rem 0 .6rem; font-size: 1.3rem; }
+em { color: var(--sage-dark); font-style: italic; }
+.hero-text { max-width: 560px; margin: 0; color: var(--muted); font-size: 1.1rem; }
+
+.section { padding: 6.5rem 8%; border-top: 1px solid var(--line); }
+.section-content { display: grid; grid-template-columns: minmax(220px, .9fr) 1fr; gap: 12%; }
+.section-content > div { max-width: 510px; color: var(--muted); }
+.section-content p { margin-top: 0; margin-bottom: 1.4rem; }
+.approach-section { background: #eef2eb; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+.portfolio-card { min-height: 235px; padding: 1.75rem; background: var(--cream); border: 1px solid var(--line); transition: transform .2s ease, box-shadow .2s ease; }
+.portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(58, 76, 60, .1); }
+.portfolio-card span { color: var(--sage-dark); font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+.portfolio-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+.site-footer { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding: 5rem 8%; color: var(--cream); background: #405144; }
+.site-footer .eyebrow { color: #c5d6be; }
+.site-footer h2 { margin-bottom: 1rem; }
+.site-footer h2 em { color: #c5d6be; }
+.site-footer p:not(.eyebrow) { margin: 0; color: #d7dfd5; }
+.button { display: inline-flex; align-items: center; gap: .7rem; padding: .9rem 1.25rem; font-weight: 700; text-decoration: none; }
+.button-light { color: var(--ink); background: var(--cream); }
+.button-light:hover { background: var(--accent); }
+
+@media (max-width: 760px) {
+  .page-shell { width: 90vw; }
+  .site-header, .section, .site-footer { padding-right: 7%; padding-left: 7%; }
+  .section-content, .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .portfolio-card { min-height: auto; }
+  .site-footer { align-items: start; flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+  .site-nav { align-items: flex-start; flex-direction: column; }
+  .nav-links { flex-wrap: wrap; gap: .75rem 1rem; }
+  .nav-links a.active::after { bottom: -.35rem; }
+  .hero { padding: 4rem 0 5rem; }
+  h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
 }
