@@ -10,12 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home-page">
   <div class="page-shell">
     <div class="content-panel">
-      <header class="site-header" id="home">
-        <nav class="site-nav" aria-label="Main navigation">
+      <header class="site-header home-header" id="home">
+        <div class="home-header-top">
           <a class="logo" href="index.html">Kylee</a>
+          <p class="info-block">A marketing student and creative thinker finding thoughtful ways for brands to connect with people.</p>
+        </div>
+
+        <nav class="site-nav home-primary-nav" aria-label="Primary navigation">
           <div class="nav-links">
             <a class="active" href="index.html" aria-current="page">Home</a>
             <a href="about.html">About me</a>
@@ -24,10 +28,9 @@
           </div>
         </nav>
 
-        <div class="hero">
-          <p class="eyebrow">01 / Home</p>
-          <h1>Ideas with purpose.<br><em>Marketing with heart.</em></h1>
-          <p class="hero-text">I create clear, creative marketing experiences that help good ideas reach the right people.</p>
+        <div class="home-secondary-nav" aria-label="Secondary navigation">
+          <a href="#portfolio">What I do</a>
+          <a href="#approach">My approach</a>
         </div>
       </header>
 
@@ -42,7 +45,7 @@
 
         <main class="main-column">
           <section class="hero-box" aria-label="Hero section">
-            <p class="eyebrow">Welcome / Kylee</p>
+            <p class="eyebrow">01 / Home</p>
             <h1>Ideas with purpose.<br><em>Marketing with heart.</em></h1>
             <p class="hero-text">I create clear, creative marketing experiences that help good ideas reach the right people.</p>
           </section>
